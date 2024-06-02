@@ -1,5 +1,6 @@
-CREATE TABLE LOCATION (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+/* 
+CREATE TABLE location (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255),
     local_name VARCHAR(255),
     lat DECIMAL(10,8),
@@ -7,8 +8,8 @@ CREATE TABLE LOCATION (
     country CHAR(6)
 );
 
-CREATE TABLE Weather (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE weather (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     location_id INT,
     weather_id INT,
     main VARCHAR(255),
@@ -35,6 +36,9 @@ CREATE TABLE Weather (
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (location_id) REFERENCES Location(id)
 );
+
+INSERT INTO Location (name, local_name, lat, lon, country) VALUES 
+('Galway City', 'Galway', 53.2744122, -9.0490601, 'IE');
 
 ---- Ireland ----
 INSERT INTO Location (name, local_name, lat, lon, country) VALUES 
@@ -255,4 +259,4 @@ VALUES
 (11, 701, 'Mist', 'mist', '50d',
     'stations', 273.15, 269.52, 273.12, 273.15, 
     1026, 100, 8000, 4.63, 30, 1717326325, 
-    'GB', 1717296909, 1717335849, 0, 'Birmingham', 200);
+    'GB', 1717296909, 1717335849, 0, 'Birmingham', 200); */
