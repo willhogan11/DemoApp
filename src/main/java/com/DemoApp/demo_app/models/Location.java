@@ -1,43 +1,46 @@
 package com.DemoApp.demo_app.models;
-import jakarta.persistence.Column;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "location")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Location {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
-    @Column(name = "name")
+    private long id;
     private String name;
-    
-    @Column(name = "local_name")
     private String local_name;
-    
-    @Column(name = "lat")
     private float lat;
-
-    @Column(name = "lon")
     private float lon;
-        
-    @Column(name = "country")
     private String country;
+
+    @OneToMany(mappedBy="location")
+    private List<Weather> weathers;
 
     public Location() {
     }
+
+    public List<Weather> getWeathers() {
+        return weathers;
+    }
+
+    public void setWeathers(List<Weather> weathers) {
+        this.weathers = weathers;
+    }
     
-    public int getId() {
+    public long  getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -25,7 +25,6 @@ CREATE TABLE weather (
     visibility INT,
     wind_speed DECIMAL(5,2),
     wind_deg INT,
-    wind_gust DECIMAL(5,2),
     dt INT,
     sys_country CHAR(2),
     sunrise INT,

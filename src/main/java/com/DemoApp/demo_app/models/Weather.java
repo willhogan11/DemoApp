@@ -1,17 +1,29 @@
 package com.DemoApp.demo_app.models;
 
+import java.util.Date;
+
+import org.springframework.data.annotation.CreatedDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
-@Entity(name = "weather")
+@Entity
+@Table(name = "weather")
 public class Weather {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int location_id;
     private int weather_id;
     private String main;
     private String description;
@@ -34,6 +46,16 @@ public class Weather {
     private String name;
     private int cod;
 
+    @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "timestamp")
+    private Date timestamp;
+
+    @ManyToOne
+    @JoinColumn(name="location_id")
+    @JsonIgnore
+    private Location location;
+
     public Weather() {
     }
 
@@ -43,14 +65,6 @@ public class Weather {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getLocation_id() {
-        return location_id;
-    }
-
-    public void setLocation_id(int location_id) {
-        this.location_id = location_id;
     }
 
     public int getWeather_id() {
@@ -165,14 +179,6 @@ public class Weather {
         this.wind_deg = wind_deg;
     }
 
-    public float getWind_gust() {
-        return wind_gust;
-    }
-
-    public void setWind_gust(float wind_gust) {
-        this.wind_gust = wind_gust;
-    }
-
     public int getDt() {
         return dt;
     }
@@ -228,6 +234,20 @@ public class Weather {
     public void setCod(int cod) {
         this.cod = cod;
     }
-    
-    
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
 }
