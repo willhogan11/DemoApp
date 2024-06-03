@@ -46,6 +46,8 @@ public class Weather {
     private String name;
     private int cod;
 
+    public static final double KELVIN_CONSTANT = 273.15;
+
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "timestamp")
@@ -108,7 +110,7 @@ public class Weather {
     }
 
     public float getTemp() {
-        return temp;
+        return (float) (temp - KELVIN_CONSTANT);
     }
 
     public void setTemp(float temp) {
