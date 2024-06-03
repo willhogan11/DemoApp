@@ -23,7 +23,7 @@ public class Weather {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private int weather_id;
     private String main;
     private String description;
@@ -61,11 +61,11 @@ public class Weather {
     public Weather() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
