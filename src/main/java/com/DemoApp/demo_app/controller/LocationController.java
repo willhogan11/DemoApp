@@ -40,7 +40,7 @@ public class LocationController {
      * then all weather entries for the given localName are returned. 
      * If /location/Galway?average=true is entered, then the average temperature based on all weather readings for the given localName, is returned.
      * Note: this is linked to a custom query defined in the LocationRepository and doesn't use the "out of the box" CRUD operations which are provided by extending JpaRepository*/
-    @GetMapping("/{localName}")
+    @GetMapping("/name/{localName}")
     public List<Map<String, Object>> getAverageWeatherByLocalName(@PathVariable String localName, @RequestParam(required = false) Boolean average) {
         if(Boolean.TRUE.equals(average)) {
             List<Map<String, Object>> results = locationRepository.averageWeatherByLocalName(localName);
