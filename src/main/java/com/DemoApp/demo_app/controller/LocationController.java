@@ -22,13 +22,13 @@ public class LocationController {
     private LocationRepository locationRepository;
 
     /* End point which utilises the get request, which is provided as part of the "out of the box" CRUD operations, by extending JpaRepository. 
-     * This query returns all weather readins for all locations. */
+     * This route returns all locations and all weather readings entries linked to each location. */
     @GetMapping
     public List<Location> list() {
         return locationRepository.findAll();
     }
     
-    // End point which takes an id as a parameter and returns all weather readings for a given Location ID. 
+    // End point which takes a Location id as a parameter and returns all weather readings for a given Location ID, for example 1 which would equal Galway. 
     @GetMapping
     @RequestMapping("{id}")
     public Location get (@PathVariable Long id){
@@ -36,7 +36,7 @@ public class LocationController {
         .orElseThrow(() -> new ExceptionHandling(id));
     }
     
-    /* End point to return marshalled data based on localName parameter. If localname param is supplied, i.e /location/Galway, 
+    /* End point to return marshalled data based on localName parameter. If localname param is supplied, i.e /location/name/Galway, 
      * then all weather entries for the given localName are returned. 
      * If /location/Galway?average=true is entered, then the average temperature based on all weather readings for the given localName, is returned.
      * Note: this is linked to a custom query defined in the LocationRepository and doesn't use the "out of the box" CRUD operations which are provided by extending JpaRepository*/

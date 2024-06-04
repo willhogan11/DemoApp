@@ -21,14 +21,13 @@ public class WeatherController {
     private WeatherRepository weatherRepository;
 
      /* End point which utilises the get request, which is provided as part of the "out of the box" CRUD operations, by extending JpaRepository. 
-     * This query returns all weather readins for all locations. */
+     * This query returns all weather readings. */
     @GetMapping
     public List<Weather> list() {
         return weatherRepository.findAll();
     }
 
-    /* End point which utilises the get request, which is provided as part of the "out of the box" CRUD operations, by extending JpaRepository. 
-     * This query returns all weather readings for all locations. */
+    /* End point which takes a Weather Type as param for example api/weather/Clouds, would display all weatehr entries for any lcoation, where it is cloudy */
     @GetMapping
     @RequestMapping("/{main}")
     public List<Weather> getAllLocationsWithWeatherType(@PathVariable String main) {

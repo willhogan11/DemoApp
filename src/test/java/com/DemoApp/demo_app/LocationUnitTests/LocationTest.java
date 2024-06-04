@@ -1,5 +1,9 @@
 package com.DemoApp.demo_app.LocationUnitTests;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import static org.hamcrest.Matchers.is;
@@ -31,17 +35,16 @@ public class LocationTest {
     private LocationRepository locationRepository;
 
     private final String locationName = "Galway";
-    private final Long dummy_location_id = (long) 1;
+    private final Long dummyLocationId = (long) 1;
     
-    //Sample test for GET /api/location
-    @Test
-    void testGetAllLocations() throws Exception {
-         when(locationRepository.findAll()).thenReturn(Collections.emptyList());
-         this.mockMvc.perform(get("/api/location"))
-                .andExpect(status().isOk());
-    }
+     //Sample test for GET /api/location
+     @Test
+     void testCheckStatusOk() throws Exception {
+          when(locationRepository.findAll()).thenReturn(Collections.emptyList());
+          this.mockMvc.perform(get("/api/location"))
+                 .andExpect(status().isOk());
+     }
 
-    //Sample test for GET /api/location/{id}
     @Test
     void testGetLocationById() throws Exception {
         Location locationModel = new Location();
@@ -52,8 +55,8 @@ public class LocationTest {
         locationModel.setLon((float) -9.049059867858887);
         locationModel.setCountry("IE");
         
-        when(locationRepository.findById(dummy_location_id)).thenReturn(Optional.of(locationModel));
-        this.mockMvc.perform(get("/api/location/" + dummy_location_id))
+        when(locationRepository.findById(dummyLocationId)).thenReturn(Optional.of(locationModel));
+        this.mockMvc.perform(get("/api/location/" + dummyLocationId))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.id", is(Math.toIntExact(locationModel.getId()))))
@@ -67,8 +70,21 @@ public class LocationTest {
     // Sample test for GET /api/location/{localName}
     @Test
     void testGetWeatherByLocationName() throws Exception {
-         when(locationRepository.findWeatherByLocalName(locationName)).thenReturn(Collections.emptyList());
-         this.mockMvc.perform(get("/api/location/name/" + locationName))
+        // Mocking a response.
+        List<Map<String, Object>> mockResponse = new ArrayList<>();
+        Map<String, Object> dummyData = new HashMap<>();
+        dummyData.put("1", "Hello");
+        mockResponse.add(dummyData);
+
+        when(locationRepository.findWeatherByLocalName(locationName)).thenReturn(mockResponse);
+        this.mockMvc.perform(get("/api/location/name/" + locationName))
                 .andExpect(status().isOk());
+        }
+
+    @Test
+    void testGetLocationByIdNotFound() throws Exception {
+        when(locationRepository.findById(dummyLocationId)).thenReturn(Optional.empty());
+        this.mockMvc.perform(get("/api/location/" + dummyLocationId))
+                .andExpect(status().isNotFound());
     }
 } 

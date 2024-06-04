@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+// Exception Handling and http message returned to the user in case of issues.
 @RestControllerAdvice
 public class ExceptionHandlingAdvice {
 

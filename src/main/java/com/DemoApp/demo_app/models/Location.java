@@ -1,6 +1,8 @@
 package com.DemoApp.demo_app.models;
 import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,17 +25,17 @@ public class Location {
     private String country;
 
     @OneToMany(mappedBy="location")
-    private List<Weather> weathers;
+    private List<Weather> weather;
 
     public Location() {
     }
 
-    public List<Weather> getWeathers() {
-        return weathers;
+    public List<Weather> getWeather() {
+        return weather;
     }
 
-    public void setWeathers(List<Weather> weathers) {
-        this.weathers = weathers;
+    public void setWeather(List<Weather> weather) {
+        this.weather = weather;
     }
     
     public long  getId() {
