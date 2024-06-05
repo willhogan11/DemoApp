@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Summary](#summary)
-- [Section 2](#section-2)
+- [Included in this project](#project)
 - [Section 3](#section-3)
 - [Section 4](#section-4)
 
@@ -13,7 +13,7 @@
 A Proof of Concept Application designed to provide a working demonstration of how a Restful Weather API operates. 
 For this application, i used Spring Boot and Java. I used a H2 in memory DB to store the information. The API id designed to return 
 
-#### Included in this project:
+## Included in this project
 - Rest API
 - DB
 - Exception Handling
