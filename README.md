@@ -2,11 +2,11 @@
 
 ## Table of Contents
 - [Summary](#summary)
-- [Included in this project](#project)
-- [Areas of consideration](#consideration)
-- [Application Architecture](#architecture)
-- [Instructions to run](#run)
-- [Rest Endpoints](#endpoints)
+- [Included in this project](#included-in-this-project)
+- [Areas of consideration](#areas-of-consideration)
+- [Application Architecture](#application-architecture)
+- [Instructions to run](#instructions-to-run)
+- [Rest Endpoints](#rest-endpoints)
 
 
 ## Summary
@@ -104,18 +104,3 @@ Example response:
 Example response:
 
 ![image](https://github.com/willhogan11/DemoApp/assets/8812314/cf83217d-e5b9-43d6-bb41-4cdb0e70bd8c)
-
----
-
-### Areas of consideration:
-
-This application was designed based on a POC perspective, and isn't intended to emmulate a working productive system. 
-For example, the API is retrieving data from a DB with static information (H2 in memory DB). In a real world scenario the DB would be populated as and when new weather records are processed, which subsequently results with the API retrieving fresh information. 
-I did however register for OpenWeatherAPI <https://openweathermap.org/api> to get a look and feel for the type of weather information and type of calls that might be required. 
-My DB is roughly predicated on the below;
-
-![image](https://github.com/willhogan11/DemoApp/assets/8812314/5334c7ce-be4b-462d-a570-f7c886e8a183)
-![image](https://github.com/willhogan11/DemoApp/assets/8812314/0aa39c8f-57a9-4dea-9efc-28f2d629c4cd)
-
-Ideally given more time, i would have added more queries to get specific weather information between dates, however as the H2 db needs to be populated each time the application runs, the same fresh timestamp is entered for all entries of weather instances, which is why i couldn't search between dates. To try and combat this, i attempted to setup a PostgreSQL and MySQL connection, but some complication arose and i decided to stay with H2 as the DB, just for this Proof of Concept. 
-I would also have added more Exception handling and added some more tests to more thoroughly check data in the DB, instead of mocking repsonses. 
