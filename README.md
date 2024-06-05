@@ -32,7 +32,7 @@ My DB is roughly predicated on the below;
 ![image](https://github.com/willhogan11/DemoApp/assets/8812314/0aa39c8f-57a9-4dea-9efc-28f2d629c4cd)
 
 Ideally given more time, i would have added more queries to get specific weather information between dates, however as the H2 db needs to be populated each time the application runs, the same fresh timestamp is entered for all entries of weather instances, which is why i couldn't search between dates. To try and combat this, i attempted to setup a PostgreSQL and MySQL connection, but some complication arose and i decided to stay with H2 as the DB, just for this Proof of Concept. 
-I would also have added more Exception handling and added some more tests to more thoroughly check data in the DB, instead of mocking repsonses. 
+I would also have added more Exception handling and added more tests to thoroughly check data in the DB, instead of mocking repsonses. 
 
 ---
 
