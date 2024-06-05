@@ -3,9 +3,10 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Included in this project](#project)
-- [Section 3](#section-3)
-- [Section 4](#section-4)
-
+- [Areas of consideration](#consideration)
+- [Application Architecture](#architecture)
+- [Instructions to run](#run)
+- [Rest Endpoints](#endpoints)
 
 
 ## Summary
@@ -23,7 +24,7 @@ For this application, i used Spring Boot and Java. I used a H2 in memory DB to s
 
 ---
 
-### Areas of consideration:
+## Areas of consideration
 
 This application was designed based on a POC perspective, and isn't intended to emmulate a working productive system. 
 For example, the API is retrieving data from a DB with static information (H2 in memory DB). In a real world scenario the DB would be populated as and when new weather records are processed, which subsequently results with the API retrieving fresh information. 
@@ -38,12 +39,12 @@ I would also have added more Exception handling and added some more tests to mor
 
 ---
 
-### Application Architecture:
+## Application Architecture
 ![App_Architecture](https://github.com/willhogan11/DemoApp/assets/8812314/5f952628-238e-42a3-82e8-19fb44c687ec)
 
 ---
 
-### Instructions to run:
+## Instructions to run
 - Clone repo to your local machine.
 - Perform a ```mvn clean install```
 - Build & Run the application locally.
@@ -59,7 +60,7 @@ I would also have added more Exception handling and added some more tests to mor
 
 ---
 
-### Rest Endpoints:
+## Rest Endpoints
 
 - ##### List all locations and display nested weather values for each:
 ![image](https://github.com/willhogan11/DemoApp/assets/8812314/0bacb9f1-46fa-447c-b11a-299c5547bea5)
