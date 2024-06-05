@@ -13,7 +13,7 @@ public interface LocationRepository extends JpaRepository<Location, Long> {
 
     // Returns all Weather entries when using a parameter of Local_name
     @Query(value="SELECT L.country, L.local_name, (W.temp - 273.15) "
-    + "AS Celsius_Temp, W.wind_speed, W.description "
+    + "AS Celsius_Temp, W.wind_speed, W.description, W.Timestamp "
     + "FROM Location AS L "
     + "INNER JOIN Weather AS W "
     + "ON L.id = W.location_id "
