@@ -11,11 +11,11 @@
 
 ## Summary
 A Proof of Concept Application designed to provide a working demonstration of how a Restful Weather API operates. 
-For this application, i used Spring Boot and Java. I used a H2 in memory DB to store the information. The API id designed to return 
+For this application, i used Spring Boot and Java with VS Code as my IDE. In terms of DB persitence, a H2 in memory DB was used to store the information. 
 
 ## Included in this project
 - Rest API
-- DB
+- DB persistence
 - Exception Handling
 - Some Test Coverage
 - Spring Boot Application Architecture adherence.
@@ -86,14 +86,14 @@ Example response:
 
 ![image](https://github.com/willhogan11/DemoApp/assets/8812314/7f6e8258-7737-4372-ba38-807d38425c68)
 
-- #### List all weather entries:
+- ##### List all weather entries:
 ![image](https://github.com/willhogan11/DemoApp/assets/8812314/e539731d-2b0a-4289-aefa-4c17319dcbe7)
 
 Example response:
 
 ![image](https://github.com/willhogan11/DemoApp/assets/8812314/518a34fa-46e9-403e-9f4d-0019f09e2111)
 
-- #### List all weather entries of a specific weather type, for example Cloudy for all locations:
+- ##### List all weather entries of a specific weather type, for example Cloudy for all locations:
 
 ![image](https://github.com/willhogan11/DemoApp/assets/8812314/91b54ff6-1f5b-4e1f-860a-f6ce71ff8a82)
 
